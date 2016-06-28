@@ -1,2 +1,23 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<div class="container">
+	<h1>Welcome to the stupid Bitly app!</h1>
+
+	<form action = "/urls" method = "post">
+		<input type ="text" name="long_url">
+		<input type ="submit" value="Submit">
+	</form>
+
+	<% unless @url.nil? %>
+	<a href ="/<%= @url.short_url %>">Your New Link</a>
+	<% end %>
+
+	<table style= "border:solid 2px black;">
+		<tr>
+		<th>Long URL</th>
+		<th>Short URL</th>
+		</tr>
+
+		<% @url.each do |x| %>
+		<tr>
+		<td><
+
+</div>
