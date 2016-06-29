@@ -1,23 +1,34 @@
 <div class="container">
-	<h1>Welcome to the stupid Bitly app!</h1>
+<head>
+<style>
+body {
+    background-color: #baffdc;
+    background-image: url("img/nice1.jpg"); 
+    background-size: cover;
+}
+}
+</style>
+</head>
+<body>
 
-	<form action = "/urls" method = "post">
+<h1 class="pagetitle t-center">Welcome to my cute Bitly.</h1>
+	<form id="form1" action = "/urls" method = "post">
 		<input type ="text" name="long_url">
 		<input type ="submit" value="Submit">
 	</form>
 
-	<% unless @url.nil? %>
-	<a href ="/<%= @url.short_url %>">Your New Link</a>
+<%= @msg %>
+<br>
+
+	<table id="tablej" style="width:80%">
+	<th>Long URL</th> <th>Short URL</th>
+	  
+	<% @urls.each do |x| %>	
+	  <tr>
+	    <td><%= x.long_url %></td>
+	    <td><a href = "/<%=x.short_url%>"><%= x.short_url %></a></td> 
+	  </tr>
 	<% end %>
-
-	<table style= "border:solid 2px black;">
-		<tr>
-		<th>Long URL</th>
-		<th>Short URL</th>
-		</tr>
-
-		<% @url.each do |x| %>
-		<tr>
-		<td><
-
+	  
+	</table>
 </div>
