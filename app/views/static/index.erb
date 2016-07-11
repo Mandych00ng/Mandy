@@ -1,34 +1,31 @@
 <div class="container">
-<head>
-<style>
-body {
-    background-color: #baffdc;
-    background-image: url("img/nice1.jpg"); 
-    background-size: cover;
-}
-}
-</style>
-</head>
-<body>
 
-<h1 class="pagetitle t-center">Welcome to my cute Bitly.</h1>
-	<form id="form1" action = "/urls" method = "post">
-		<input type ="text" name="long_url">
-		<input type ="submit" value="Submit">
-	</form>
+	<h1 class="pagetitle">Welcome to my cute Bitly.</h1>
+		<form id="form1" action = "/urls" method = "post">
+			<input type ="text" name="long_url">
+			<input type ="submit" value="Submit">
+		</form>
+	<p class="center"><%= @msg %></p>
+		<br>
+		<p id="flip">See History</p>
+		<br>
+		<table>
+		
+		<th width='70%'>
+			<h2>Long URL</h2>
+			</th> 
+		<th width='30%'>
+			<h2>Short URL</h2>
+			</th>
+		
+		<tbody id="tablej">
+			<% @urls.each do |x| %>
+			  <tr>
+			    <td><%= x.long_url %></td>
+			    <td><a href = "/<%=x.short_url%>"><%= x.short_url %></a></td> 
+			  </tr>
+			  <% end %>
+		</tbody>
+		</table>
 
-<%= @msg %>
-<br>
-
-	<table id="tablej" style="width:80%">
-	<th>Long URL</th> <th>Short URL</th>
-	  
-	<% @urls.each do |x| %>	
-	  <tr>
-	    <td><%= x.long_url %></td>
-	    <td><a href = "/<%=x.short_url%>"><%= x.short_url %></a></td> 
-	  </tr>
-	<% end %>
-	  
-	</table>
 </div>
